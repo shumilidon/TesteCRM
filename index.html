@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Jurídico - Advocacia (com Login)</title>
+    <title>CRM Jurídico - Advocacia</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
 
         /* Estilos da tela de login */
         #loginScreen {
-            display: flex; /* Alterado para flex no JS */
+            display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -60,9 +60,6 @@
             color: #ecf0f1;
             text-align: center;
         }
-        #loginScreen .token-example strong {
-            color: #3498db;
-        }
         #baserowTokenInput {
             width: 100%;
             padding: 15px;
@@ -90,32 +87,32 @@
 
         .header-container {
             display: flex;
-            justify-content: space-between; /* Alinha stats à esquerda e actions à direita */
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.08); /* Fundo sutil para o header */
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .stats-compact {
             display: flex;
-            gap: 15px; /* Espaço entre os pills de estatísticas */
+            gap: 15px;
         }
 
         .stat-pill {
-            background: rgba(255, 255, 255, 0.15); /* Fundo mais claro para os pills */
+            background: rgba(255, 255, 255, 0.15);
             padding: 10px 15px;
-            border-radius: 20px; /* Bordas mais arredondadas */
+            border-radius: 20px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            min-width: 80px; /* Largura mínima para cada pill */
+            min-width: 80px;
         }
 
         .stat-number-compact {
-            font-size: 1.5rem; /* Tamanho maior para o número */
+            font-size: 1.5rem;
             font-weight: 700;
             color: #ecf0f1;
             display: block;
@@ -129,14 +126,14 @@
         
         .action-buttons {
             display: flex;
-            gap: 10px; /* Espaço entre os botões de ação */
+            gap: 10px;
         }
 
         .btn-icon {
             background: rgba(255, 255, 255, 0.2);
             color: #ecf0f1;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%; /* Botões redondos */
+            border-radius: 50%;
             width: 40px;
             height: 40px;
             display: flex;
@@ -183,14 +180,14 @@
             border-radius: 15px;
             padding: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            justify-content: space-between; /* Para separar search-container e botão do calendário */
+            justify-content: space-between;
             align-items: center;
         }
         .search-container {
             display: flex;
-            gap: 10px; /* Espaço entre os filtros e a busca */
-            flex-wrap: wrap; /* Permite que os itens quebrem linha se necessário */
-            flex-grow: 1; /* Permite que o container de busca cresça */
+            gap: 10px;
+            flex-wrap: wrap;
+            flex-grow: 1;
         }
         .btn {
             background: linear-gradient(135deg, #2c3e50, #34495e);
@@ -207,13 +204,9 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
         }
-        .btn-secondary {
-            background: linear-gradient(135deg, #7f8c8d, #95a5a6);
-            box-shadow: 0 4px 15px rgba(127, 140, 141, 0.3);
-        }
         .search-box {
-            flex: 1; /* Ocupa espaço disponível */
-            min-width: 200px; /* Largura mínima para a caixa de busca */
+            flex: 1;
+            min-width: 200px;
             padding: 12px 20px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 25px;
@@ -291,26 +284,26 @@
         }
         .cliente-header {
             display: flex;
-            flex-direction: column; 
-            align-items: flex-start; 
-            margin-bottom: 10px; 
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 10px;
         }
         .cliente-info-principal {
             display: flex;
-            align-items: center; 
-            gap: 10px; 
-            margin-bottom: 5px; 
-            width: 100%; 
-            justify-content: space-between; /* Empurra o status da tarefa para a direita */
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+            width: 100%;
+            justify-content: space-between;
         }
         .cliente-name {
             font-size: 1.1rem;
             font-weight: 600;
             color: #1f2937;
-            flex-grow: 1; /* Permite que o nome ocupe o espaço */
+            flex-grow: 1;
         }
         .cliente-email-tel-container {
-            display: flex; /* Novo container para email/tel e status da tarefa */
+            display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
@@ -321,14 +314,13 @@
             font-size: 0.85rem;
         }
         .tarefa-status {
-            /* margin-left: auto;  Removido, pois o space-between no container pai cuidará disso */
             cursor: pointer;
             font-size: 0.85rem;
             font-weight: 500;
         }
         .etapa-badge-container {
-             display: inline-block; 
-             margin-left: 10px; /* Adiciona um pequeno espaço se o nome for muito grande */
+            display: inline-block;
+            margin-left: 10px;
         }
         .etapa-badge {
             padding: 6px 12px;
@@ -337,13 +329,13 @@
             font-weight: 600;
             background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
-            border: none; 
-            cursor: pointer; 
-            display: inline-block; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-            min-width: 120px; 
-            text-align: center; 
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+            text-align: center;
         }
         .etapa-badge:hover {
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
@@ -356,37 +348,37 @@
             font-weight: 600;
             background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
-            border: none; 
+            border: none;
             cursor: pointer;
-            appearance: none; 
+            appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            outline: none; 
-            transition: all 0.2s ease; 
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-            min-width: 120px; 
-            text-align: center; 
+            outline: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            min-width: 120px;
+            text-align: center;
             background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27292.4%27%20height%3D%27292.4%27%3E%3Cpath%20fill%3D%27%23ffffff%27%20d%3D%27M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%27%2F%3E%3C%2Fsvg%3E");
             background-repeat: no-repeat;
             background-position: right 8px center;
             background-size: 8px;
-            padding-right: 24px; 
+            padding-right: 24px;
         }
         .etapa-badge-select:focus {
-             box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5), 0 4px 8px rgba(0, 0, 0, 0.2); 
-             transform: translateY(-1px); 
-             background: linear-gradient(135deg, #3498db, #2980b9); 
-             color: white; 
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5), 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
         }
         .etapa-badge-select:hover {
-             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); 
-             transform: translateY(-1px); 
-             background: linear-gradient(135deg, #3498db, #2980b9); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+            transform: translateY(-1px);
+            background: linear-gradient(135deg, #3498db, #2980b9);
         }
         .etapa-badge-select option {
-             background-color: #3498db; 
-             color: white; 
-             font-weight: 500; 
+            background-color: #3498db;
+            color: white;
+            font-weight: 500;
         }
         .cliente-detalhes {
             display: none;
@@ -475,6 +467,54 @@
             justify-content: center;
             align-items: center;
         }
+        .modal-content {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: none;
+        }
+        .modal h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s ease;
+            background: #f9f9f9;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
         .form-row {
             display: flex;
             margin-bottom: 18px;
@@ -482,62 +522,28 @@
         .form-row .form-group {
             margin-bottom: 0;
         }
-        .modal-content {
-            background: #ffffff; 
-            border-radius: 12px; 
-            padding: 30px; 
-            max-width: 500px; 
-            width: 90%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-            border: none; 
-        }
-        .modal h2 {
-            margin-bottom: 25px; 
-            color: #333; 
-            font-size: 1.8rem; 
-            text-align: center; 
-        }
-        .form-group {
-            margin-bottom: 18px; 
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px; 
-            color: #555; 
-            font-weight: 500; 
-            font-size: 1rem; 
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px; 
-            border: 1px solid #ddd; 
-            border-radius: 8px; 
-            font-size: 1rem; 
-            outline: none;
-            transition: all 0.2s ease;
-            background: #f9f9f9; 
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); 
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #3498db; 
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); 
-            transform: none; 
-        }
-        .form-group textarea {
-            height: 100px; 
-            resize: vertical; 
-        }
         .modal-actions {
             display: flex;
-            gap: 15px; 
+            gap: 15px;
             justify-content: flex-end;
-            margin-top: 30px; 
+            margin-top: 30px;
         }
-       
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1001;
+        }
+        .notification.show {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -546,11 +552,8 @@
     <div id="loginScreen">
         <div>
             <h2>CRM Jurídico - Login</h2>
-            <p>Insira seu token do Baserow no formato <strong>TABLE_ID-TOKEN</strong> para acessar o sistema.</p>
-            <div class="token-example">
-                Exemplo: <strong>12345</strong>-AbCdEfGhIjKlMnOpQrStUvWxYz
-            </div>
-            <input type="text" id="baserowTokenInput" placeholder="Insira seu token no formato TABLE_ID-TOKEN">
+            <p>Insira seu token do Baserow para acessar o sistema.</p>
+            <input type="password" id="baserowTokenInput" placeholder="Seu Token Baserow">
             <button onclick="handleLogin()" class="btn" style="width: 100%;">Entrar</button>
             <p id="loginError" style="display: none;">Token inválido. Tente novamente.</p>
         </div>
@@ -606,9 +609,7 @@
                     </select>
                     <input type="text" class="search-box" placeholder="Buscar clientes..." onkeyup="filtrarClientes(this.value)">
                 </div>
-                <div class="calendar-button-container"> <!-- Novo container para o botão do calendário -->
-                    <button class="btn" id="btnToggleCalendario" onclick="toggleCalendario()">Ver Calendário de Tarefas</button>
-                </div>
+                <button class="btn" id="btnToggleCalendario" onclick="toggleCalendario()">Ver Calendário de Tarefas</button>
             </div>
 
             <!-- Calendário de Tarefas (inicialmente oculto) -->
@@ -729,36 +730,47 @@
         </div>
 
         <div class="notification" id="notification"></div>
-    </div> <!-- Fim do crmContent -->
+    </div>
 
     <script>
-        // Variáveis e funções para o calendário
-        let dataCalendarioAtual = new Date();
-        let clientesComTarefas = [];
-        let calendarioVisivel = false;
-        
-        // --- Configurações e Variáveis Globais --- 
+        // ========================================
+        // CONFIGURAÇÕES E VARIÁVEIS GLOBAIS
+        // ========================================
         let BASEROW_CONFIG = {
             baseUrl: 'https://api.baserow.io/api/database/rows/table/',
-            tableId: '', // Será preenchido pelo usuário
-            token: '',   // Será preenchido pelo usuário
+            tableId: '', // PREENCHA COM SEU TABLE_ID
+            token: null,
             headers: {
                 'Authorization': '',
                 'Content-Type': 'application/json'
             }
         };
+
         let clientes = [];
         let clienteEmEdicaoId = null;
         let clienteParaExcluirId = null;
+        let dataCalendarioAtual = new Date();
+        let clientesComTarefas = [];
+        let calendarioVisivel = false;
 
-        // --- Funções de Login e Sessão --- 
-        async function testBaserowConnection(tableId, token) {
+        // Lista de etapas do processo jurídico
+        const OPCOES_ETAPA = [
+            "Análise Inicial", "Coleta de Documentos", "Elaboração da Peça", 
+            "Protocolo", "Aguardando Despacho", "Recurso", "Sustentação Oral",
+            "Trânsito em Julgado", "Execução", "Finalizado"
+        ];
+
+        // ========================================
+        // FUNÇÕES DE AUTENTICAÇÃO E SESSÃO
+        // ========================================
+
+        async function testBaserowConnection(token) {
             try {
                 const testHeaders = {
                     'Authorization': `Token ${token}`,
                     'Content-Type': 'application/json'
                 };
-                const response = await fetch(`${BASEROW_CONFIG.baseUrl}${tableId}/?size=1`, {
+                const response = await fetch(`${BASEROW_CONFIG.baseUrl}${BASEROW_CONFIG.tableId}/?size=1`, {
                     method: 'GET',
                     headers: testHeaders
                 });
@@ -769,71 +781,34 @@
             }
         }
 
-        function checkSession() {
-            const storedToken = sessionStorage.getItem('baserowApiToken');
-            const storedTableId = sessionStorage.getItem('baserowTableId');
-            if (storedToken && storedTableId) {
-                BASEROW_CONFIG.token = storedToken;
-                BASEROW_CONFIG.tableId = storedTableId;
-                BASEROW_CONFIG.headers.Authorization = `Token ${storedToken}`;
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('crmContent').style.display = 'block';
-                carregarClientes();
-            } else {
-                document.getElementById('loginScreen').style.display = 'flex';
-                document.getElementById('crmContent').style.display = 'none';
-            }
-        }
-
         async function handleLogin() {
-            const tokenInput = document.getElementById('baserowTokenInput').value.trim();
+            const token = document.getElementById('baserowTokenInput').value.trim();
             const loginError = document.getElementById('loginError');
             
             loginError.style.display = 'none';
             
-            if (!tokenInput) {
+            if (!token) {
                 loginError.textContent = 'Por favor, insira um token.';
                 loginError.style.display = 'block';
                 return;
             }
 
-            // Extrai tableId e token
-            // Formato esperado: tableId-TOKEN_REAL (ex: 12345-AbCdEfGhIjKlMnOpQrStUvWxYz0123456789)
-            const parts = tokenInput.split('-');
-            if (parts.length < 2) { // Verifica se há pelo menos um hífen
-                loginError.textContent = 'Token inválido. O formato esperado é SEU_TABLE_ID-SEU_TOKEN. Certifique-se de incluir o hífen entre o ID da tabela e o token.';
-                loginError.style.display = 'block';
-                return;
-            }
-            
-            const tableId = parts[0];
-            const actualToken = parts.slice(1).join('-'); // Permite que o token em si contenha hífens
-
-            if (!tableId || !actualToken) { // Verificação adicional
-                loginError.textContent = 'Token inválido. ID da tabela ou token ausente. O formato esperado é SEU_TABLE_ID-SEU_TOKEN.';
-                loginError.style.display = 'block';
-                return;
-            }
-
-            // Testa a conexão com o Baserow usando o tableId e o token fornecidos
             mostrarNotificacao('🔑 Verificando token...', 'info', 2000);
-            const isValidToken = await testBaserowConnection(tableId, actualToken);
+            const isValidToken = await testBaserowConnection(token);
 
             if (isValidToken) {
-                sessionStorage.setItem('baserowApiToken', actualToken);
-                sessionStorage.setItem('baserowTableId', tableId);
-                BASEROW_CONFIG.token = actualToken;
-                BASEROW_CONFIG.tableId = tableId;
-                BASEROW_CONFIG.headers.Authorization = `Token ${actualToken}`;
+                sessionStorage.setItem('baserowApiToken', token);
+                BASEROW_CONFIG.token = token;
+                BASEROW_CONFIG.headers.Authorization = `Token ${token}`;
                 
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('crmContent').style.display = 'block';
                 loginError.style.display = 'none';
                 
                 mostrarNotificacao('✅ Login bem-sucedido!', 'success');
-                carregarClientes();
+                buscarClientesBaserow();
             } else {
-                loginError.textContent = 'Token ou Table ID inválido. Verifique o formato TABLE_ID-TOKEN e tente novamente.';
+                loginError.textContent = 'Token inválido. Verifique o token e tente novamente.';
                 loginError.style.display = 'block';
                 mostrarNotificacao('❌ Falha no login.', 'error');
             }
@@ -841,21 +816,36 @@
 
         function handleLogout() {
             sessionStorage.removeItem('baserowApiToken');
-            sessionStorage.removeItem('baserowTableId');
             BASEROW_CONFIG.token = '';
-            BASEROW_CONFIG.tableId = '';
             BASEROW_CONFIG.headers.Authorization = '';
             clientes = [];
             document.getElementById('loginScreen').style.display = 'flex';
             document.getElementById('crmContent').style.display = 'none';
-            // Limpa os grids para não mostrar dados antigos se outro usuário logar
             document.getElementById('gridAtivos').innerHTML = '';
             document.getElementById('gridPendentes').innerHTML = '';
             document.getElementById('gridArquivados').innerHTML = '';
-            atualizarEstatisticas(); // Zera as estatísticas
+            atualizarEstatisticas();
             mostrarNotificacao('🔒 Logout realizado.', 'info');
         }
-        
+
+        function checkSession() {
+            const storedToken = sessionStorage.getItem('baserowApiToken');
+            if (storedToken) {
+                BASEROW_CONFIG.token = storedToken;
+                BASEROW_CONFIG.headers.Authorization = `Token ${storedToken}`;
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('crmContent').style.display = 'block';
+                buscarClientesBaserow();
+            } else {
+                document.getElementById('loginScreen').style.display = 'flex';
+                document.getElementById('crmContent').style.display = 'none';
+            }
+        }
+
+        // ========================================
+        // FUNÇÕES DO CALENDÁRIO
+        // ========================================
+
         function toggleCalendario() {
             if (calendarioVisivel) {
                 fecharCalendario();
@@ -969,46 +959,52 @@
             return html;
         }
 
-        // --- Funções CRUD com Baserow --- 
-        async function carregarClientes() {
+        // ========================================
+        // FUNÇÕES DE INTEGRAÇÃO COM O BASEROW
+        // ========================================
+
+        async function buscarClientesBaserow() {
             if (!BASEROW_CONFIG.token) { handleLogout(); return; }
             mostrarNotificacao('Carregando clientes...', 'info', 5000);
             try {
-                const response = await fetch(`${BASEROW_CONFIG.baseUrl}${BASEROW_CONFIG.tableId}/?size=200`, { // Removido user_field_names=true
+                const response = await fetch(`${BASEROW_CONFIG.baseUrl}${BASEROW_CONFIG.tableId}/?user_field_names=true`, {
                     method: 'GET',
                     headers: BASEROW_CONFIG.headers
                 });
+                
                 if (!response.ok) {
-                    if (response.status === 401) { // Token inválido ou expirado
+                    if (response.status === 401) {
                         handleLogout();
                         mostrarNotificacao('Sessão expirada. Faça login novamente.', 'error');
                         return;
                     }
                     throw new Error(`Erro ao carregar clientes (${response.status})`);
                 }
+                
                 const data = await response.json();
                 clientes = data.results.map(item => ({
                     id: item.id,
-                    nome: item.field_4457729 || "",
-                    email: item.field_4457730 || "",
-                    telefone: item.field_4457731 || "",
-                    tipoCaso: item.field_4457749?.value || "", // Usar ?.value para campos de seleção única
-                    advogadoResponsavel: item.field_4525191 || "",
-                    status: item.field_4457750?.value || 'Pendente', // Default para Pendente se não definido
-                    observacoes: item.field_4457752 || "",
-                    etapa: item.field_4477668?.value || 'Análise Inicial', // Default para Etapa
-                    acompanhamento: item.field_4524618 || "",
-                    expira: item.field_4524619 || null, // Campo de data e hora
-                    dataAtualizacao: item.field_4457753 || (item.updated_on ? item.updated_on.split('T')[0] : new Date().toISOString().split('T')[0]), // Campo de data
-                    tarefaConcluida: item.field_4525198 || false // Campo booleanoo
+                    nome: item.Nome || "",
+                    email: item.Email || "",
+                    telefone: item.Telefone || "",
+                    tipoCaso: item['Tipo de Caso']?.value || "",
+                    advogadoResponsavel: item['Advogado Responsável'] || "",
+                    status: item.Status?.value || 'Pendente',
+                    observacoes: item.Observações || "",
+                    etapa: item.Etapa?.value || 'Análise Inicial',
+                    acompanhamento: item.Acompanhamento || "",
+                    expira: item['Data de Expiração'] || null,
+                    dataAtualizacao: item['Data de Atualização'] || (item.updated_on ? item.updated_on.split('T')[0] : new Date().toISOString().split('T')[0]),
+                    tarefaConcluida: item['Tarefa Concluída'] || false
                 }));
+                
                 renderizarClientes();
                 atualizarEstatisticas();
                 mostrarNotificacao('Clientes carregados!', 'success');
             } catch (error) {
                 console.error("Erro ao carregar clientes:", error);
                 mostrarNotificacao('Falha ao carregar clientes.', 'error');
-                if (error.message.includes("401")) handleLogout(); // Se for erro de autenticação, desloga
+                if (error.message.includes("401")) handleLogout();
             }
         }
 
@@ -1016,17 +1012,17 @@
             if (!BASEROW_CONFIG.token) { handleLogout(); return null; }
             try {
                 const dadosBaserow = {
-                    "field_4457729": dados.nome,
-                    "field_4457730": dados.email,
-                    "field_4457731": dados.telefone,
-                    "field_4457749": dados.tipoCaso ? { value: dados.tipoCaso } : null,
-                    "field_4525191": dados.advogadoResponsavel,
-                    "field_4457750": dados.status ? { value: dados.status } : null,
-                    "field_4457752": dados.observacoes,
-                    "field_4524618": dados.acompanhamento,
-                    "field_4524619": dados.expira || null, // Envia null se vazio
-                    "field_4457753": dados.dataAtualizacao,
-                    "field_4525198": dados.tarefaConcluida // Campo booleano
+                    "Nome": dados.nome,
+                    "Email": dados.email,
+                    "Telefone": dados.telefone,
+                    "Tipo de Caso": dados.tipoCaso ? { value: dados.tipoCaso } : null,
+                    "Advogado Responsável": dados.advogadoResponsavel,
+                    "Status": dados.status ? { value: dados.status } : null,
+                    "Observações": dados.observacoes,
+                    "Acompanhamento": dados.acompanhamento,
+                    "Data de Expiração": dados.expira || null,
+                    "Data de Atualização": dados.dataAtualizacao,
+                    "Tarefa Concluída": dados.tarefaConcluida
                 };
 
                 const response = await fetch(`${BASEROW_CONFIG.baseUrl}${BASEROW_CONFIG.tableId}/?user_field_names=true`, {
@@ -1034,6 +1030,7 @@
                     headers: BASEROW_CONFIG.headers,
                     body: JSON.stringify(dadosBaserow)
                 });
+                
                 if (!response.ok) {
                     const errorBody = await response.text();
                     console.error("Erro Baserow (Salvar):", response.status, errorBody);
@@ -1050,17 +1047,17 @@
             if (!BASEROW_CONFIG.token) { handleLogout(); return null; }
             try {
                 const dadosBaserow = {
-                    "field_4457729": dados.nome,
-                    "field_4457730": dados.email,
-                    "field_4457731": dados.telefone,
-                    "field_4457749": dados.tipoCaso ? { value: dados.tipoCaso } : null,
-                    "field_4525191": dados.advogadoResponsavel,
-                    "field_4457750": dados.status ? { value: dados.status } : null,
-                    "field_4457752": dados.observacoes,
-                    "field_4524618": dados.acompanhamento,
-                    "field_4524619": dados.expira || null,
-                    "field_4457753": dados.dataAtualizacao,
-                    "field_4525198": dados.tarefaConcluida
+                    "Nome": dados.nome,
+                    "Email": dados.email,
+                    "Telefone": dados.telefone,
+                    "Tipo de Caso": dados.tipoCaso ? { value: dados.tipoCaso } : null,
+                    "Advogado Responsável": dados.advogadoResponsavel,
+                    "Status": dados.status ? { value: dados.status } : null,
+                    "Observações": dados.observacoes,
+                    "Acompanhamento": dados.acompanhamento,
+                    "Data de Expiração": dados.expira || null,
+                    "Data de Atualização": dados.dataAtualizacao,
+                    "Tarefa Concluída": dados.tarefaConcluida
                 };
 
                 const response = await fetch(`${BASEROW_CONFIG.baseUrl}${BASEROW_CONFIG.tableId}/${clienteId}/?user_field_names=true`, {
@@ -1068,6 +1065,7 @@
                     headers: BASEROW_CONFIG.headers,
                     body: JSON.stringify(dadosBaserow)
                 });
+                
                 if (!response.ok) {
                     const errorBody = await response.text();
                     console.error("Erro Baserow (Atualizar):", response.status, errorBody);
@@ -1087,21 +1085,49 @@
                     method: 'DELETE',
                     headers: BASEROW_CONFIG.headers
                 });
+                
                 if (!response.ok) {
-                    // Se o status for 204 No Content, a exclusão foi bem-sucedida mesmo sem corpo de resposta
                     if (response.status === 204) return true;
                     const errorBody = await response.text();
                     console.error("Erro Baserow (Excluir):", response.status, errorBody);
                     throw new Error(`Erro ao excluir (${response.status}): ${errorBody || response.statusText}`);
                 }
-                return true; // Sucesso (ou 204 No Content)
+                return true;
             } catch (error) {
                 console.error("Falha ao excluir cliente no Baserow:", error);
                 return false;
             }
         }
 
-        // --- Funções de Renderização --- 
+        async function atualizarEtapaBaserow(clienteId, novaEtapa) {
+            if (!BASEROW_CONFIG.token) { handleLogout(); return false; }
+            try {
+                const dadosBaserow = {
+                    "Etapa": novaEtapa
+                };
+
+                const response = await fetch(`${BASEROW_CONFIG.baseUrl}${BASEROW_CONFIG.tableId}/${clienteId}/?user_field_names=true`, {
+                    method: 'PATCH',
+                    headers: BASEROW_CONFIG.headers,
+                    body: JSON.stringify(dadosBaserow)
+                });
+
+                if (!response.ok) {
+                    const errorBody = await response.text();
+                    console.error("Erro Baserow (Atualizar Etapa):", response.status, errorBody);
+                    throw new Error(`Erro ao atualizar etapa (${response.status}): ${errorBody || response.statusText}`);
+                }
+                return true;
+            } catch (error) {
+                console.error("Falha ao atualizar etapa no Baserow:", error);
+                return false;
+            }
+        }
+
+        // ========================================
+        // FUNÇÕES DA INTERFACE DO CRM
+        // ========================================
+
         function renderizarClientes() {
             const gridAtivos = document.getElementById('gridAtivos');
             const gridPendentes = document.getElementById('gridPendentes');
@@ -1113,9 +1139,9 @@
 
             // Ordena os clientes pela data de atualização (mais recente primeiro)
             const clientesOrdenados = [...clientes].sort((a, b) => {
-                const dataA = a.dataAtualizacao ? new Date(a.dataAtualizacao) : new Date(0); // Trata datas nulas
+                const dataA = a.dataAtualizacao ? new Date(a.dataAtualizacao) : new Date(0);
                 const dataB = b.dataAtualizacao ? new Date(b.dataAtualizacao) : new Date(0);
-                return dataB - dataA; // Decrescente
+                return dataB - dataA;
             });
 
             clientesOrdenados.forEach(cliente => {
@@ -1128,39 +1154,31 @@
                     gridArquivados.appendChild(card);
                 }
             });
-            aplicarFiltros(); // Aplica filtros após renderizar
+            aplicarFiltros();
         }
 
-        // Função para mostrar o dropdown de etapas
         function mostrarDropdownEtapa(badgeElement, clienteId, etapaAtual) {
-            const etapasDisponiveis = [
-                'Análise Inicial', 'Coleta de Documentos', 'Elaboração da Peça', 
-                'Protocolo', 'Aguardando Despacho', 'Recurso', 'Sustentação Oral',
-                'Trânsito em Julgado', 'Execução', 'Finalizado'
-            ];
-
-            const select = document.createElement('select');
-            select.className = 'etapa-badge-select'; // Usa a classe para estilizar como badge
+            const select = document.createElement("select");
+            select.className = "etapa-badge-select";
             
-            etapasDisponiveis.forEach(etapa => {
-                const option = document.createElement('option');
-                option.value = etapa;
-                option.textContent = etapa;
-                if (etapa === etapaAtual) {
+            OPCOES_ETAPA.forEach(opcao => {
+                const option = document.createElement("option");
+                option.value = opcao;
+                option.textContent = opcao;
+                if (opcao === etapaAtual) {
                     option.selected = true;
                 }
                 select.appendChild(option);
             });
 
-            // Substitui o badge pelo select
             badgeElement.replaceWith(select);
-            select.focus(); // Foca no select para abrir o dropdown
+            select.focus();
 
-            // Evento quando uma nova etapa é selecionada
             select.onchange = async () => {
                 const novaEtapa = select.value;
                 mostrarNotificacao(`🔄 Atualizando etapa para ${novaEtapa}...`, 'info');
                 const sucesso = await atualizarEtapaBaserow(clienteId, novaEtapa);
+                
                 if (sucesso) {
                     const index = clientes.findIndex(c => c.id == clienteId);
                     if (index !== -1) {
@@ -1186,8 +1204,8 @@
 
             select.onblur = () => {
                 if (document.body.contains(select)) {
-                     const badgeOriginal = criarBadgeEtapa(clienteId, etapaAtual);
-                     select.replaceWith(badgeOriginal);
+                    const badgeOriginal = criarBadgeEtapa(clienteId, etapaAtual);
+                    select.replaceWith(badgeOriginal);
                 }
             };
         }
@@ -1203,41 +1221,24 @@
             return badge;
         }
 
-        async function atualizarEtapaBaserow(clienteId, novaEtapa) {
-            if (!BASEROW_CONFIG.token) { handleLogout(); return false; }
-            try {
-                const dadosBaserow = { "field_4477668": novaEtapa };
-                const response = await fetch(`${BASEROW_CONFIG.baseUrl}${BASEROW_CONFIG.tableId}/${clienteId}/`, {
-                    method: 'PATCH',
-                    headers: BASEROW_CONFIG.headers,
-                    body: JSON.stringify(dadosBaserow)
-                });
-                if (!response.ok) {
-                    const errorBody = await response.text();
-                    console.error("Erro Baserow (Atualizar Etapa):", response.status, errorBody);
-                    throw new Error(`Erro ao atualizar etapa (${response.status}): ${errorBody || response.statusText}`);
-                }
-                return true; 
-            } catch (error) {
-                console.error("Falha ao atualizar etapa no Baserow:", error);
-                return false; 
-            }
-        }
-        
         async function toggleTarefaConcluida(clienteId) {
             const cliente = clientes.find(c => c.id == clienteId);
             if (!cliente) {
                 mostrarNotificacao('Cliente não encontrado.', 'error');
                 return;
             }
+            
             const novoStatus = !cliente.tarefaConcluida;
             mostrarNotificacao(`🔄 Atualizando tarefa para ${novoStatus ? 'concluída' : 'pendente'}...`, 'info');
-
-            const sucesso = await atualizarCampoBaserow(clienteId, {"Tarefa Concluida": novoStatus});
+            
+            const sucesso = await atualizarClienteBaserow(clienteId, {
+                ...cliente,
+                tarefaConcluida: novoStatus,
+                dataAtualizacao: new Date().toISOString().split('T')[0]
+            });
 
             if (sucesso) {
                 cliente.tarefaConcluida = novoStatus;
-                cliente.dataAtualizacao = new Date().toISOString().split('T')[0];
                 
                 const todosCards = document.querySelectorAll(`.cliente-card[data-cliente-id="${clienteId}"]`);
                 todosCards.forEach(cardAntigo => {
@@ -1253,39 +1254,19 @@
             }
         }
 
-        async function atualizarCampoBaserow(clienteId, camposParaAtualizar) {
-            if (!BASEROW_CONFIG.token) { handleLogout(); return false; }
-            try {
-                const response = await fetch(`${BASEROW_CONFIG.baseUrl}${BASEROW_CONFIG.tableId}/${clienteId}/`, {
-                    method: 'PATCH',
-                    headers: BASEROW_CONFIG.headers,
-                    body: JSON.stringify(camposParaAtualizar)
-                });
-                if (!response.ok) {
-                    const errorBody = await response.text();
-                    console.error("Erro Baserow (Atualizar Campo):", response.status, errorBody);
-                    throw new Error(`Erro ao atualizar campo (${response.status}): ${errorBody || response.statusText}`);
-                }
-                return true;
-            } catch (error) {
-                console.error("Falha ao atualizar campo no Baserow:", error);
-                return false;
-            }
-        }
-
         function criarCardCliente(cliente) {
             const card = document.createElement('div');
             card.className = 'cliente-card';
             card.dataset.clienteId = cliente.id;
-            card.onclick = () => expandirCard(card); 
+            card.onclick = () => expandirCard(card);
             
-            const etapa = cliente.etapa || 'N/D'; 
+            const etapa = cliente.etapa || 'N/D';
             
             card.innerHTML = `
                 <div class="cliente-header">
                     <div class="cliente-info-principal">
                         <div class="cliente-name">${cliente.nome}</div>
-                        <div class="etapa-badge-container"></div> 
+                        <div class="etapa-badge-container"></div>
                     </div>
                     <div class="cliente-email-tel-container">
                         <div class="cliente-email-tel">${cliente.email || 'N/D'} | ${cliente.telefone || 'N/D'}</div>
@@ -1341,7 +1322,7 @@
                 if (index !== -1) {
                     const novoCard = criarCardCliente(clientes[index]);
                     cardElement.parentNode.replaceChild(novoCard, cardElement);
-                    return; 
+                    return;
                 }
             }
             cardElement.classList.toggle('expandido');
@@ -1351,13 +1332,13 @@
             if (!dataISO) return 'N/D';
             try {
                 const data = new Date(dataISO);
-                if (isNaN(data.getTime())) return dataISO; 
+                if (isNaN(data.getTime())) return dataISO;
                 const offset = data.getTimezoneOffset();
                 const dataAjustada = new Date(data.getTime() + offset * 60 * 1000);
                 return dataAjustada.toLocaleDateString('pt-BR');
             } catch (e) {
                 console.warn("Erro ao formatar data:", dataISO, e);
-                return dataISO; 
+                return dataISO;
             }
         }
         
@@ -1365,7 +1346,7 @@
             if (!dataISO) return 'N/D';
             try {
                 const data = new Date(dataISO);
-                if (isNaN(data.getTime())) return dataISO; 
+                if (isNaN(data.getTime())) return dataISO;
                 const dia = data.getDate().toString().padStart(2, '0');
                 const mes = (data.getMonth() + 1).toString().padStart(2, '0');
                 const ano = data.getFullYear();
@@ -1374,7 +1355,7 @@
                 return `${dia}/${mes}/${ano} às ${hora}:${minuto}`;
             } catch (e) {
                 console.warn("Erro ao formatar data e hora:", dataISO, e);
-                return dataISO; 
+                return dataISO;
             }
         }
 
@@ -1428,20 +1409,30 @@
             filtrarClientes(document.querySelector('.search-box').value);
         }
 
+        function sincronizarBaserow() {
+            buscarClientesBaserow();
+        }
+
+        // ========================================
+        // FUNÇÕES DOS MODAIS
+        // ========================================
+
         const clienteModal = document.getElementById('clienteModal');
         const modalTitle = document.getElementById('modalTitle');
         const clienteForm = document.getElementById('clienteForm');
         const saveClientButton = document.getElementById('saveClientButton');
 
         function abrirModal(modo = 'adicionar', clienteId = null) {
-            clienteForm.reset(); 
+            clienteForm.reset();
             clienteEmEdicaoId = null;
+            
             if (modo === 'adicionar') {
                 modalTitle.textContent = 'Novo Cliente';
-                saveClientButton.onclick = salvarCliente; 
+                saveClientButton.onclick = salvarCliente;
             } else if (modo === 'editar' && clienteId) {
                 modalTitle.textContent = 'Editar Cliente';
                 const cliente = clientes.find(c => c.id == clienteId);
+                
                 if (cliente) {
                     clienteEmEdicaoId = clienteId;
                     document.getElementById('nome').value = cliente.nome;
@@ -1452,6 +1443,7 @@
                     document.getElementById('status').value = cliente.status;
                     document.getElementById('observacoes').value = cliente.observacoes;
                     document.getElementById('acompanhamento').value = cliente.acompanhamento || '';
+                    
                     if (cliente.expira && cliente.expira.trim() !== '') {
                         try {
                             const dataExpira = new Date(cliente.expira);
@@ -1462,20 +1454,16 @@
                                 const hora = dataExpira.getHours().toString().padStart(2, '0');
                                 const minuto = dataExpira.getMinutes().toString().padStart(2, '0');
                                 document.getElementById('expira').value = `${ano}-${mes}-${dia}T${hora}:${minuto}`;
-                            } else {
-                                document.getElementById('expira').value = '';
                             }
                         } catch (e) {
                             console.warn("Erro ao formatar data de expiração:", cliente.expira, e);
-                            document.getElementById('expira').value = '';
                         }
-                    } else {
-                        document.getElementById('expira').value = '';
                     }
-                    saveClientButton.onclick = salvarCliente; 
+                    
+                    saveClientButton.onclick = salvarCliente;
                 } else {
                     mostrarNotificacao('Cliente não encontrado para edição.', 'error');
-                    return; 
+                    return;
                 }
             }
             clienteModal.style.display = 'flex';
@@ -1483,7 +1471,7 @@
 
         function fecharModal() {
             clienteModal.style.display = 'none';
-            clienteEmEdicaoId = null; 
+            clienteEmEdicaoId = null;
         }
 
         function adicionarCliente() {
@@ -1505,7 +1493,8 @@
                 observacoes: document.getElementById('observacoes').value.trim(),
                 acompanhamento: document.getElementById('acompanhamento').value.trim(),
                 expira: document.getElementById('expira').value,
-                dataAtualizacao: new Date().toISOString().split('T')[0] 
+                dataAtualizacao: new Date().toISOString().split('T')[0],
+                tarefaConcluida: false
             };
 
             if (!dadosForm.nome || !dadosForm.email || !dadosForm.telefone || !dadosForm.tipoCaso) {
@@ -1521,7 +1510,7 @@
                 if (resultadoBaserow) {
                     const index = clientes.findIndex(c => c.id == clienteEmEdicaoId);
                     if (index !== -1) {
-                        clientes[index] = { ...clientes[index], ...dadosForm, id: clienteEmEdicaoId }; 
+                        clientes[index] = { ...clientes[index], ...dadosForm, id: clienteEmEdicaoId };
                     }
                     mostrarNotificacao('Cliente atualizado com sucesso!');
                 } else {
@@ -1530,15 +1519,16 @@
             } else {
                 resultadoBaserow = await salvarClienteBaserow(dadosForm);
                 if (resultadoBaserow) {
-                    const novoClienteLocal = { ...dadosForm, id: resultadoBaserow.id, etapa: resultadoBaserow.Etapa?.value || 'Análise Inicial' }; 
+                    const novoClienteLocal = { ...dadosForm, id: resultadoBaserow.id, etapa: resultadoBaserow.Etapa?.value || 'Análise Inicial' };
                     clientes.push(novoClienteLocal);
                     mostrarNotificacao('Cliente adicionado com sucesso!');
                 } else {
                     mostrarNotificacao('Falha ao salvar cliente no Baserow.', 'error');
                 }
             }
+
             if (resultadoBaserow) {
-                carregarClientes(); 
+                carregarClientes();
                 fecharModal();
             }
         }
@@ -1575,19 +1565,21 @@
             clienteParaExcluirId = null;
         }
 
-        const notificationElement = document.getElementById('notification');
-        let notificationTimeout;
+        // ========================================
+        // FUNÇÕES AUXILIARES
+        // ========================================
 
         function mostrarNotificacao(mensagem, tipo = 'success', duracao = 3000) {
+            const notificationElement = document.getElementById('notification');
             clearTimeout(notificationTimeout);
             notificationElement.textContent = mensagem;
-            notificationElement.className = 'notification show'; 
+            notificationElement.className = 'notification show';
 
             if (tipo === 'error') {
                 notificationElement.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
             } else if (tipo === 'info') {
                 notificationElement.style.background = 'linear-gradient(135deg, #3498db, #2980b9)';
-            } else { 
+            } else {
                 notificationElement.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
             }
 
@@ -1596,11 +1588,22 @@
             }, duracao);
         }
 
+        // ========================================
+        // INICIALIZAÇÃO
+        // ========================================
+
         document.addEventListener('DOMContentLoaded', () => {
-            checkSession(); 
+            checkSession();
+            
+            // Configura o evento de tecla Enter no campo de token
+            document.getElementById('baserowTokenInput').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    handleLogin();
+                }
+            });
         });
 
     </script>
 </body>
 </html>
-
